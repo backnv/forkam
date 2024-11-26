@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Tab Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <button id="menuToggle" class="menu-toggle">☰</button>
+        <h1>Multi Tab Application</h1>
+    </header>
+    <div id="toastMessage" class="toast-message">Скопировано!</div>
+    <div class="container">
+        <div id="sideMenu" class="side-menu">
+            <div class="menu-header">
+                <h2>Menu</h2>
+            </div>
+            <nav class="menu-items">
+                <a href="#" class="menu-item active" data-tab="tab1">ГЛОНАСС</a>
+                <a href="#" class="menu-item" data-tab="tab2">Email Pars</a>
+                <a href="#" class="menu-item" data-tab="tab3">Test</a>
+                <button id="themeToggle" class="theme-toggle">🌙 Dark Mode</button>
+            </nav>
+        </div>
+        <div class="content">
+            <div id="tab1" class="tab-content active">
+                <h2>Tab 1 Content</h2>
+                <div class="tab1-demo">
+                    <div class="dataParser-wrap">
+                        <div class="parser-container">
+                            <textarea id="dataParser" class="parser-input" placeholder="Скопируй всю таблицу от знака №
+                            №	ID БНСО	Ответ от ССД	Ответ от ЕСМ	U батареи В.	U АКБ ТС В.	Вкл/выкл
+                            1	44827282	22.11.2024 13:58:45	2024-11-25 19:38:57	3.8	12.4"></textarea>
+                            <div class="parser-links">
+                                <a href="https://estp.dgkh.msk.ru/index.php?r=telemetry/alert-akb" target="_blank">Алерты АКБ</a>
+                                <a href="https://estp.dgkh.msk.ru/index.php?r=telemetry%2Fsearch-points" target="_blank">Поиск точек</a>
+                                <a href="https://estp.dgkh.msk.ru/index.php?r=telemetry%2Fcompare-points-all" target="_blank">Сравнение точек</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="workStatus" name="workStatus" placeholder="Оставь пустым если выезда небыло" class="tab1-input" 
+                               title="Оставь пустым если выезда небыло">
+                        <select id="tsStatus" name="tsStatus" class="tab1-input" 
+                                title="">
+                            <option value="Исправно">Исправно</option>
+                            <option value="Неисправно">Неисправно</option>
+                            <option value="Периодическая эксплуатация">Периодическая эксплуатация</option>
+                        </select>
+                        <input type="text" id="bnsoInput" name="bnso" placeholder="Тип БНСО" class="tab1-input"
+                               title="Тип БНСО">
+                        <input type="text" id="ssdInput" name="ssd" placeholder="ССД" class="tab1-input"
+                               title="Ответ от ССД">
+                        <input type="text" id="esmInput" name="esm" placeholder="ЕМС" class="tab1-input"
+                               title="Ответ от ЕСМ">
+                        <div class="checkbox-container" title="When checked, SSD and ESM inputs will be disabled and show as 'online'">
+                            <input type="checkbox" id="onlineStatus" name="online">
+                            <label for="onlineStatus">Online</label>
+                        </div>
+                        <input type="text" id="voltageInput" name="voltage" placeholder="Напряжение аккумулятора" class="tab1-input"
+                               title="Напряжение аккумулятора">
+                        <input type="text" id="accumulatorInput" name="accumulator" placeholder="Состояние аккумулятора" class="tab1-input"
+                               title="Состояние аккумулятора">
+                        <textarea id="batteryInput" name="battery" placeholder="Дополнительное поле" class="tab1-input additional-textarea"
+                               title="Дополнительное поле"></textarea>
+                               <div class="checkbox-group">
+                                <div class="checkbox-container" style="display: none;">
+                                    <input type="checkbox" id="text1">
+                                    <label for="text1">Text 1</label>
+                                </div>
+                                <div class="checkbox-container" style="display: none;">
+                                    <input type="checkbox" id="text2">
+                                    <label for="text2">Text 2</label>
+                                </div>
+                                <div class="checkbox-container" style="display: none;">
+                                    <input type="checkbox" id="text3">
+                                    <label for="text3">Text 3</label>
+                                </div>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" id="trustedNumberCommand">
+                                    <label for="trustedNumberCommand">Направлена команда доверенного номера</label>
+                                </div>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" id="rebootCommand">
+                                    <label for="rebootCommand">Направлена команда перезагрузки</label>
+                                </div>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" id="navigationMarkCommand">
+                                    <label for="navigationMarkCommand">Направлена команда навигационной отметки</label>
+                                </div>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" id="satelliteLoss">
+                                    <label for="satelliteLoss">Потеря спутников</label>
+                                </div>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" id="satelliteNormal">
+                                    <label for="satelliteNormal">Спутники в норме</label>
+                                </div>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" id="stuckCoordinate">
+                                    <label for="stuckCoordinate">Зависание в одной координате</label>
+                                </div>
+                            </div>
+                            
+                    </div>
+                    <div id="tab1-output" class="output-text"></div>
+                    <div class="copy-buttons">
+                        <button class="copy-btn" data-text="Зависание устранено">Зависание устранено</button>
+                        <button class="copy-btn" data-text="БНСО работает штатно">БНСО работает штатно</button>
+                        <button class="copy-btn" data-text="Отмена заявки по инициативе заказчика">Отмена заявки по инициативе заказчика</button>
+                        <button class="copy-btn" data-text="Трек формируется">Трек формируется</button>
+                        <button class="copy-btn" data-text="Передача данных восстановлена">Передача данных восстановлена</button>
+                    </div>
+                    
+                </div>
+            </div>
+            <div id="tab2" class="tab-content">
+                <h2>Текст письма</h2>
+                <div class="keyword-matcher">
+                    <input type="text" id="textInput" placeholder="Введите текст...">
+                    <button id="checkKeywords">Проверить</button>
+                    <div id="result"></div>
+                </div>
+            </div>
+            <div id="tab3" class="tab-content">
+                <h2>Tab 3 Content</h2>
+                <div class="tab3-demo">
+                    <div class="color-boxes">
+                        <div class="color-box"></div>
+                        <div class="color-box"></div>
+                        <div class="color-box"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="tab1.js"></script>
+    <script src="tab2.js"></script>
+</body>
+</html>
