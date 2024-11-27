@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Viewer</title>
+    <style>
+        .container {
+            margin: 20px;
+        }
+        .checkbox-container {
+            margin-bottom: 20px;
+        }
+        .result-container {
+            margin-top: 20px;
+        }
+        .result-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkbox-container">
+            <label><input type="checkbox" id="titleCheckbox"> Title</label><br>
+            <label><input type="checkbox" id="resultCheckbox"> Result</label><br>
+            <label><input type="checkbox" id="itogCheckbox"> Itog</label><br>
+            <label><input type="checkbox" id="reviewCheckbox"> Review</label><br>
+            <label><input type="checkbox" id="urlCheckbox"> URL</label><br>
+        </div>
+        <div class="input-container">
+            <label for="limitInput">Limit: </label>
+            <input type="number" id="limitInput" value="5" min="1" max="100">
+        </div>
+        <input type="file" id="fileInput" accept=".json"><br><br>
+        <button onclick="loadJSON()">Load JSON</button>
+        <div class="result-container" id="resultContainer"></div>
+    </div>
+
+    <script>
+        function loadJSON() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert('Please select a JSON file.');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const jsonData = JSON.parse(event.target.result);
+                displayData(jsonData);
+            };
+            reader.readAsText(file);
+        }
+
+        function displayData(data) {
+            const resultContainer = document.getElementById('resultContainer');
+            resultContainer.innerHTML = '';
+
+            const titleCheckbox = document.getElementById('titleCheckbox').checked;
+            const resultCheckbox = document.getElementById('resultCheckbox').checked;
+            const itogCheckbox = document.getElementById('itogCheckbox').checked;
+            const reviewCheckbox = document.getElementById('reviewCheckbox').checked;
+            const urlCheckbox = document.getElementById('urlCheckbox').checked;
+
+            const limit = parseInt(document.getElementById('limitInput').value, 10);
+            const limitedData = data.slice(0, limit);
+
+            limitedData.forEach(item => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+
+                if (titleCheckbox && item.title) {
+                    const titleElement = document.createElement('p');
+                    titleElement.textContent = `Title: ${item.title}`;
+                    resultItem.appendChild(titleElement);
+                }
+                if (resultCheckbox && item.result) {
+                    const resultElement = document.createElement('p');
+                    resultElement.textContent = `Result: ${item.result}`;
+                    resultItem.appendChild(resultElement);
+                }
+                if (itogCheckbox && item.itog) {
+                    const itogElement = document.createElement('p');
+                    itogElement.textContent = `Itog: ${item.itog}`;
+                    resultItem.appendChild(itogElement);
+                }
+                if (reviewCheckbox && item.review) {
+                    const reviewElement = document.createElement('p');
+                    reviewElement.textContent = `Review: ${item.review}`;
+                    resultItem.appendChild(reviewElement);
+                }
+                if (urlCheckbox && item.url) {
+                    const urlElement = document.createElement('p');
+                    urlElement.textContent = `URL: ${item.url}`;
+                    resultItem.appendChild(urlElement);
+                }
+
+                resultContainer.appendChild(resultItem);
+            });
+        }
+    </script>
+</body>
+</html>
