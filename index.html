@@ -125,19 +125,24 @@
                 </div>
             </div>
             <div id="tab3" class="tab-content">
-                <h2>Tab 3 Content</h2>
-                <div class="tab3-demo">
-                    <div class="color-boxes">
-                        <div class="color-box"></div>
-                        <div class="color-box"></div>
-                        <div class="color-box"></div>
+                <div class="">
+                    <div class="current-time" id="currentTime"></div><br>
+                    <div class="input-container">
+                        <input type="text" id="linkInput" placeholder="Вставьте ссылку">
+                        <button onclick="saveLink()">Сохранить</button>
                     </div>
+                    <div class="link-list" id="linkList"></div>
                 </div>
+
+
+
+
             </div>
         </div>
     </div>
     <script src="main.js"></script>
     <script src="tab1.js"></script>
     <script src="tab2.js"></script>
+    <script src="tab3.js"></script>
 </body>
 </html>

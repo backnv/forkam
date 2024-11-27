@@ -612,3 +612,8 @@ input[type="text"] {
     line-height: 1.5;
     padding: 10px;
 }
+
+.link-item{
+    display: flex;
+    justify-content: space-between;
+}

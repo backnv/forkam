@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle voltage input
         const voltageValue = voltageInput.value.trim();
         if (voltageValue !== '') {
-            values.push('Напряжение ' + formatDate(voltageValue));
+            values.push('U АКБ ТС В. ' + formatDate(voltageValue));
         }
 
         // Handle accumulator state input
