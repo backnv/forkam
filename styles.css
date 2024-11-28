@@ -1,13 +1,13 @@
 /* Theme Variables */
 
-
 :root {
     /* Base Colors */
     --bg-color: #ffffff;
-    --text-color: #333333;
+
+    --text-color: #121212;
 
     /* Input & Form Elements */
-    --input-bg: #ffffff;
+    --input-bg: #f8f9fa;
     --input-border: #cccccc;
     --input-focus: #4a5568;
 
@@ -35,6 +35,20 @@
     --background-primary: #ffffff;
     --accent-color: #4a5568;
     --accent-color-hover: #2d3748;
+
+    /* Additional Colors */
+    --link-item-active-bg: #647b6a;
+    --toast-message-bg: #333;
+    --toast-message-show-bg: #4CAF50;
+    --copy-btn-copied-bg: #4CAF50;
+    --active-count-span-bg: red;
+    --active-count-span-zero-bg: transparent;
+    --highlight-color: tomato;
+    --highlight-blue-color: orange;
+    --result-item-count-font-size: 24px;
+    --result-item-title-font-size: 18px;
+    --border-width: 1px;
+    --gradient-background: linear-gradient(60deg, #5f86f2, #a65ff2, #f25fd0, #f25f61, #f2cb5f, #abf25f, #5ff281, #5ff2f0);
 }
 
 [data-theme="dark"] {
@@ -87,26 +101,13 @@ body {
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
 }
-.link-item a {
-    color: white;
-    text-decoration: none;
-}
-
-.link-item a:visited {
-    color: white;
-}
-
-.time-buttons {
-    display: flex;
-    gap: 5px;
-}
 
 .time-buttons button {
     padding: 5px 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
     cursor: pointer;
-    color: black;
+    color: var(--text-color);
     font: bold 12px Arial;
 }
 .current-wrap{
@@ -114,11 +115,11 @@ body {
     gap: 20px;
 }
 .time-buttons button:hover {
-    background-color: #e0e0e0;
+    background-color: var(--button-hover);
 }
 
 .link-item.active{
-    background: red;
+    background: var(--link-item-active-bg);
 }
 
 .toast-message {
@@ -126,7 +127,7 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #333;
+    background-color: var(--toast-message-bg);
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -291,34 +292,29 @@ body {
     opacity: 0.7;
 }
 
-#tab1{
-}
 #tab1 .tab1-wrap{
     display: flex;
 }
-#tab1 .list-title{}
-#tab1 .list-title ul{}
 #tab1 .list-title ul li{
     cursor: pointer;
     list-style: none;
     padding: 3px 5px;
-    background: #647b6a;
+    background: var(--link-item-active-bg);
     border-radius: 5px;
     color: white;
     font: 12px Arial ;
     margin: 1px;
-    white-space: nowrap;
 }
-#tab1{}
-#tab1{}
-#tab1{}
 .title-cret{
     margin: 15px 10px 5px;
     font: 12px Arial;
 }
+.tab1-wrap{
+    gap: 5px;
+}
 
-@media screen and (max-width: 500px){
-    .title-cret{
+@media screen and (max-width: 650px){
+    .tab1-wrap{
         display: flex;
         flex-direction: column;
     }
@@ -332,14 +328,14 @@ body {
     border-radius: 4px;
     margin-top: 20px;
     font-family: monospace;
-    white-space: pre-wrap;
+    var(--text-color)-space: pre-wrap;
     word-break: break-word;
 }
 
 button {
     padding: 10px 20px;
     background-color: var(--button-bg);
-    color: var(--text-color);
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -350,7 +346,7 @@ button:hover {
     background-color: var(--button-hover);
 }
 
-input[type="text"] {
+input[type="text"], input[type="number"] {
     padding: 8px 12px;
     border: 1px solid var(--input-border);
     border-radius: 4px;
@@ -425,10 +421,10 @@ input[type="text"] {
     transform: translateX(-50%);
     padding: 8px;
     background-color: #333;
-    color: white;
+    color: var(--text-color);
     border-radius: 4px;
     font-size: 14px;
-    white-space: nowrap;
+    var(--text-color)-space: nowrap;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
@@ -480,12 +476,12 @@ input[type="text"] {
 .parser-links a {
     display: block;
     padding: 4px 10px;
-    background-color: var(--accent-color);
+    background: var(--link-item-active-bg);
     color: white;
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.2s;
-    white-space: nowrap;
+    var(--text-color)-space: nowrap;
     font: 12px Arial;
 }
 
@@ -541,11 +537,11 @@ input[type="text"] {
 }
 
 .highlight {
-    color: tomato;
+    color: var(--highlight-color);
 }
 
 .highlight-blue {
-    color: orange;
+    color: var(--highlight-blue-color);
     font-weight: bold;
 }
 
@@ -560,19 +556,19 @@ input[type="text"] {
 }
 
 .result-item .count {
-    font-size: 24px;
+    font-size: var(--result-item-count-font-size);
     font-weight: bold;
     margin-right: 20px;
 }
 
 .result-item .title {
-    font-size: 18px;
+    font-size: var(--result-item-title-font-size);
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .result-item .text {
-    white-space: pre-wrap;
+    var(--text-color)-space: pre-wrap;
 }
 
 .expanded {
@@ -589,7 +585,7 @@ input[type="text"] {
     z-index: -1;
     width: calc(100% + var(--border-width) * 2);
     height: calc(100% + var(--border-width) * 2);
-    background: linear-gradient(60deg, #5f86f2, #a65ff2, #f25fd0, #f25f61, #f2cb5f, #abf25f, #5ff281, #5ff2f0);
+    background: var(--gradient-background);
     background-size: 300% 300%;
     background-position: 0 50%;
     border-radius: calc(var(--border-width) * 3);
@@ -629,7 +625,7 @@ input[type="text"] {
 #searchButton {
     padding: 10px 20px;
     background-color: var(--accent-color);
-    color: white;
+    color: var(--text-color);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -651,7 +647,7 @@ input[type="text"] {
 .copy-btn {
     padding: 8px 15px;
     background-color: var(--accent-color);
-    color: white;
+    color: var(--text-color);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -663,15 +659,15 @@ input[type="text"] {
 }
 
 .copy-btn.copied {
-    background-color: #4CAF50;
+    background-color: var(--copy-btn-copied-bg);
 }
 
 .toast-message {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--toast-message-show-bg);
+    color: var(--text-color);
     padding: 12px 24px;
     border-radius: 4px;
     font-size: 14px;
@@ -680,6 +676,7 @@ input[type="text"] {
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    height: 40px;
 }
 
 .toast-message.show {
@@ -700,16 +697,36 @@ input[type="text"] {
 .link-item{
     display: flex;
     justify-content: space-between;
+    padding: 5px;
+    border-radius: 5px;
+    gap: 5px;
+    margin-bottom: 5px;
+    align-items: center;
 }
 
-
+.link-item.active{
+    color: white;
+}
+.link-item span{
+    flex: 1 1 auto;
+}
+.link-item.active, .link-item.active a:visited{
+    color: white;
+}
 .link-item a {
-    color: blue;
+    margin-right: 5px;
+    color: var(--text-color);
     text-decoration: none;
+
+}
+
+.link-item button{
+    width: 20px;
+    padding: 0;
 }
 
 .link-item a:visited {
-    color: blue;
+    color: var(--text-color);
 }
 
 .time-buttons {
@@ -719,29 +736,13 @@ input[type="text"] {
 
 .time-buttons button {
     padding: 5px 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
     cursor: pointer;
 }
 
 .time-buttons button:hover {
-    background-color: #e0e0e0;
-}
-
-.toast-message {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    z-index: 1000;
-}
-
-.toast-message.show {
-    display: block;
+    background-color: var(--button-hover);
 }
 
 .active-count {
@@ -754,10 +755,44 @@ input[type="text"] {
     padding: 5px 10px;
     border-radius: 50%;
     color: white;
-    background-color: red;
+    background-color: var(--active-count-span-bg);
 }
 
 .active-count span.zero {
-    background-color: transparent;
-    color: black;
+    background-color: var(--active-count-span-zero-bg);
+    color: var(--text-color);
+}
+
+.text-up{}
+.text-up li{
+    list-style: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.text-up li:hover {
+    opacity: 1;
+}
+
+.flex{
+    display: flex;
+    gap: 2px;
+    margin: 0;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.bold {
+    font-weight: bold;
+}
+.alert-textarea li{
+    background-color: var(--input-bg);
+    border-radius: 5px;
+    padding: 5px;
+}
+.m-l15 li{
+    margin-left: 5px;
 }

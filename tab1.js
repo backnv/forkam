@@ -120,6 +120,37 @@ document.addEventListener('DOMContentLoaded', function() {
             values.push('ССД и ЕСМ online');
         }
 
+        //Add text-up to first input
+        const listItems = document.querySelectorAll('ul.text-up li');
+
+        listItems.forEach(item => {
+            item.addEventListener('click', function(event) {
+                event.stopPropagation(); // Предотвращаем всплытие события
+                // Найти ближайший родительский элемент <ul>
+                const parentUl = item.closest('ul');
+                // Найти первый input или textarea выше этого <ul>
+                let element = parentUl.previousElementSibling;
+                while (element && element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA') {
+                    element = element.previousElementSibling;
+                }
+                if (element) {
+                    const newText = item.getAttribute("data-ref");
+                    if (element.tagName === 'TEXTAREA') {
+                        if (element.value.trim() === '') {
+                            element.value = newText;
+                        } else {
+                            // Проверяем, что текст еще не добавлен
+                            if (!element.value.includes(newText)) {
+                                element.value += ' / ' + newText;
+                            }
+                        }
+                    } else {
+                        element.value = newText;
+                    }
+                }
+            });
+        });
+
         // Handle voltage input
         const voltageValue = voltageInput.value.trim();
         if (voltageValue === '') {

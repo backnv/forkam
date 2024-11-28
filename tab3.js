@@ -16,6 +16,9 @@ function saveLink() {
     const link = linkInput.value.trim(); // Получаем значение ссылки и удаляем пробелы по краям
     if (link === '') return; // Если ссылка пустая, выходим из функции
 
+    const commentInput = document.getElementById('commentInput'); // Получаем элемент ввода комментария
+    const comment = commentInput.value.trim(); // Получаем значение комментария и удаляем пробелы по краям
+
     const activationTimeInput = document.getElementById('activationTimeInput'); // Получаем элемент ввода времени активации
     const activationTime = parseInt(activationTimeInput.value.trim(), 10); // Получаем значение времени активации и преобразуем в число
 
@@ -26,6 +29,7 @@ function saveLink() {
     // Создаем объект с данными ссылки
     const linkData = {
         link: link,
+        comment: comment,
         timestamp: timestamp,
         formattedTime: formattedTime,
         status: false, // Начальный статус не "В работе"
@@ -37,6 +41,7 @@ function saveLink() {
     localStorage.setItem('links', JSON.stringify(links)); // Сохраняем обновленный массив ссылок в localStorage
 
     linkInput.value = ''; // Очищаем поле ввода ссылки
+    commentInput.value = ''; // Очищаем поле ввода комментария
     activationTimeInput.value = ''; // Очищаем поле ввода времени активации
     displayLinks(); // Обновляем отображение списка ссылок
     updateActiveCount(); // Обновляем количество активных элементов
@@ -62,14 +67,19 @@ function displayLinks() {
             linkItem.className += ' active'; // Добавляем класс "active", если время активации истекло
         }
 
-        const shortLink = linkData.link.length > 30 ? linkData.link.substring(0, 30) + '...' : linkData.link; // Сокращаем ссылку, если она слишком длинная
-
         // Создаем HTML-код для элемента ссылки
         linkItem.innerHTML = `
-            <a href="#" onclick="copyLink('${linkData.link}')">${shortLink}</a>
+            <a href="#" onclick="copyLink('${linkData.link}')">${index + 1}</a>
             <span>${linkData.formattedTime}</span>
-            <button class="delete-button" onclick="deleteLink(${index})">Удалить</button>
+            <span>${linkData.comment}</span>
+            <button class="delete-button" onclick="confirmDelete(${index}, event)">
+                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="invert(0%)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 3L6 6M6 6L10 10M6 6V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18M6 6H4M10 10L14 14M10 10V17M14 14L18 18M14 14V17M18 18L21 21M18 6V12.3906M18 6H16M18 6H20M16 6L15.4558 4.36754C15.1836 3.55086 14.4193 3 13.5585 3H10.4415C9.94239 3 9.47572 3.18519 9.11861 3.5M16 6H11.6133" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         `;
+
+        linkItem.addEventListener('click', () => editComment(index)); // Добавляем обработчик события для редактирования комментария
 
         linkList.appendChild(linkItem); // Добавляем элемент ссылки в список
     });
@@ -82,6 +92,14 @@ function deleteLink(index) {
     localStorage.setItem('links', JSON.stringify(links)); // Сохраняем обновленный массив ссылок в localStorage
     displayLinks(); // Обновляем отображение списка ссылок
     updateActiveCount(); // Обновляем количество активных элементов
+}
+
+// Функция для подтверждения удаления ссылки
+function confirmDelete(index, event) {
+    event.stopPropagation(); // Останавливаем всплытие события
+    if (confirm('Вы уверены, что хотите удалить эту ссылку?')) {
+        deleteLink(index); // Удаляем ссылку, если пользователь подтвердил
+    }
 }
 
 // Функция для копирования ссылки в буфер обмена
@@ -140,10 +158,23 @@ function checkLinkStatuses() {
     updateActiveCount(); // Обновляем количество активных элементов
 }
 
+// Функция для редактирования комментария
+function editComment(index) {
+    const links = JSON.parse(localStorage.getItem('links')) || []; // Получаем сохраненные ссылки из localStorage или создаем пустой массив
+    const linkData = links[index]; // Получаем данные ссылки по индексу
+    const newComment = prompt('Введите новый комментарий:', linkData.comment); // Запрашиваем новый комментарий у пользователя
+
+    if (newComment !== null) {
+        linkData.comment = newComment.trim(); // Обновляем комментарий
+        localStorage.setItem('links', JSON.stringify(links)); // Сохраняем обновленный массив ссылок в localStorage
+        displayLinks(); // Обновляем отображение списка ссылок
+    }
+}
+
 // Обработчик события загрузки страницы
 document.addEventListener('DOMContentLoaded', (event) => {
     updateCurrentTime(); // Обновляем текущее время
-    setInterval(updateCurrentTime, 1000); // Обновляем текущее время каждую секунду
+    setInterval(updateCurrentTime, 60000); // Обновляем текущее время каждую секунду
     displayLinks(); // Отображаем список ссылок
     updateActiveCount(); // Обновляем количество активных элементов
     setInterval(checkLinkStatuses, 60000); // Проверяем статус ссылок каждую минуту

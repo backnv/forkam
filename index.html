@@ -41,7 +41,7 @@
                             №	ID БНСО	Ответ от ССД	Ответ от ЕСМ	U батареи В.	U АКБ ТС В.	Вкл/выкл
                             1	44827282	22.11.2024 13:58:45	2024-11-25 19:38:57	3.8	12.4"></textarea>
                             <div class="parser-links">
-                                <a href="https://estp.dgkh.msk.ru/index.php?r=telemetry/alert-akb" target="_blank">Алерты
+                                <a href="https://estp.dgkh.msk.ru/index.php?r=telemetry/alert-akb" target="_blank">Контроль
                                     АКБ</a>
                                 <a href="https://estp.dgkh.msk.ru/index.php?r=telemetry%2Fsearch-points" target="_blank">Поиск
                                     точек</a>
@@ -63,6 +63,12 @@
                         </select>
                         <input type="text" id="bnsoInput" name="bnso" placeholder="Тип БНСО" class="tab1-input"
                                title="Тип БНСО">
+                        <ul class="text-up flex bold m-l15">
+                            <li data-ref="GalileoSky 5.0">5.0</li>
+                            <li data-ref="GalileoSky 7.0">7.0</li>
+                            <li data-ref="GalileoSky 7x">7x</li>
+                            <li data-ref="GalileoSky 10">10</li>
+                        </ul>
                         <input type="text" id="ssdInput" name="ssd" placeholder="ССД" class="tab1-input"
                                title="Ответ от ССД">
                         <input type="text" id="esmInput" name="esm" placeholder="ЕМС" class="tab1-input"
@@ -81,6 +87,18 @@
                         <textarea id="batteryInput" name="battery" placeholder="Дополнительное поле"
                                   class="tab1-input additional-textarea"
                                   title="Дополнительное поле"></textarea>
+                        <ul class="text-up flex flex-wrap bold alert-textarea">
+                            <li data-ref="Полная потеря спутников">S нет</li>
+                            <li data-ref="Зависание в 1 координате">Зависание в 1 координате</li>
+                            <li data-ref="AIN(0) напряжение в норме">AIN(0) норма</li>
+                            <li data-ref="Напряжение в движении в норме">AIN(0)движ.норм.</li>
+                            <li data-ref="Не поступают данные по AIN0">AIN(0)нет.данных</li>
+                            <li data-ref="Спутники и напряжение AIN(0) в норме ">S-AIN(0)-норма</li>
+                            <li data-ref="Расход по ДУТ присутствует">ДУТ норм</li>
+                            <li data-ref="Отсутствует расход по ДУТ">ДУТ отс</li>
+                            <li data-ref=""></li>
+                            <li data-ref=""></li>
+                        </ul>
                         <div id="tab1-output" class="output-text copy-text"></div>
 
                         <div class="checkbox-group">
@@ -108,15 +126,15 @@
                                 <input type="checkbox" id="navigationMarkCommand">
                                 <label for="navigationMarkCommand">Направлена команда навигационной отметки</label>
                             </div>
-                            <div class="checkbox-container">
+                            <div class="checkbox-container" style="display: none;">
                                 <input type="checkbox" id="satelliteLoss">
                                 <label for="satelliteLoss">Потеря спутников</label>
                             </div>
-                            <div class="checkbox-container">
+                            <div class="checkbox-container" style="display: none;">
                                 <input type="checkbox" id="satelliteNormal">
                                 <label for="satelliteNormal">Спутники в норме</label>
                             </div>
-                            <div class="checkbox-container">
+                            <div class="checkbox-container" style="display: none;">
                                 <input type="checkbox" id="stuckCoordinate">
                                 <label for="stuckCoordinate">Зависание в одной координате</label>
                             </div>
@@ -129,16 +147,23 @@
                 <div class="list-title">
                     <ul>
                         <div class="title-cret">Общие заключения</div>
-                        <li class="copy-text">Работы по БНСО проведены удаленно.</li>
-                        <li class="copy-text">Передача данных БНСО в штатном режиме.</li>
+                        <li class="copy-text">Работы по БНСО проведены удаленно. Передача данных восстановлена.</li>
+                        <li class="copy-text">Работы по БНСО проведены удаленно. Восстановлена фиксация движения ТС.</li>
+                        <li class="copy-text">Проведены удаленные работы ,Передача данных от БНСО в штатном режиме ,восстановлено корректное отображение ТС на карте по адресу нахождения.</li>
+                        <li class="copy-text">Работы по БНСО проведены удаленно. Блок сменил координату. Данные поступают в онлайн режиме, фиксируется стоянка по адресу базирования Прудовой пр-д, 3Б строение 3.</li>
+                        <li class="copy-text">Работа блока в штатном режиме.</li>
                         <li class="copy-text">Работа блока в штатном режиме.</li>
 
                         <div class="title-cret">Отображение перелетов трека</div>
                         <li class="copy-text">Отображение перелетов трека связано с нахождением ТС в зоне подавления спутникового сигнала вблизи социально-значимых объектов (информационная безопасность стратегически значимых объектов г.Москвы).</li>
                         <li class="copy-text">Отображение перелетов трека связано с прохождением ТС зон подавления спутникового сигнала (подмостовое пространство, информационная безопасность стратегически значимых объектов).</li>
+                        <li class="copy-text">Работы по БНСО проведены удаленно. Восстановлена фиксация движения ТС. Работа блока в штатном режиме. Отображение перелетов трека связано с прохождением ТС зон подавления спутникового сигнала (подмостовое пространство, информационная безопасность стратегически значимых объектов)</li>
+                        <li class="copy-text">Работы по БНСО проведены удаленно. В н.в. ТС находится в работе в зоне подавления спутникового сигнала вблизи социально-значимых объектов</li>
 
-                        <div class="title-cret">Формирование трека</div>
-                        <li class="copy-text">Трек формируется корректно.</li>
+                        <div class="title-cret">Отмена</div>
+                        <li class="copy-text">Отмена заявки по инициативе заказчика. Передача данных от БНСО восстановлена / Обращение на отмену № 297692</li>
+                        <li class="copy-text">Отмена выезда по инициативе заказчика - ТС активно, данные поступают корректно. / Обращение №297296 </li>
+                        <li class="copy-text">Трек формируется.</li>
                         <li class="copy-text">Трек формируется.</li>
 
                         <div class="title-cret">Параметры трека</div>
@@ -158,7 +183,6 @@
 
                         <div class="title-cret">Прочие заключения</div>
                         <li class="copy-text">Фиксируется стоянка по фактическому местонахождению техники.</li>
-
                     </ul>
                 </div>
             </div>
@@ -180,8 +204,9 @@
                 <br>
                 <div class="input-container">
                     <input type="text" id="linkInput" placeholder="Вставьте ссылку">
+                    <input type="text" id="commentInput" placeholder="Введите комментарий">
                     <div class="current-wrap">
-                        <input type="number" id="activationTimeInput" placeholder="Время активации (минуты)">
+                        <input type="number" id="activationTimeInput" placeholder="Время активации (минуты)" value="60">
                         <div class="time-buttons">
                             <button onclick="setActivationTime(10)">10</button>
                             <button onclick="setActivationTime(15)">15</button>
@@ -194,14 +219,6 @@
                 </div>
                 <div class="link-list" id="linkList"></div>
             </div>
-
-
-
-
-
-
-
-
         </div>
     </div>
 

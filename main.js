@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
         themeToggle.innerHTML = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
     }
 
+
+
     // Menu Toggle Functionality
     const menuItems = document.querySelectorAll('.menu-item');
     const tabContents = document.querySelectorAll('.tab-content');
