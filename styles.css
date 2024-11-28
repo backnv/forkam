@@ -1,33 +1,35 @@
 /* Theme Variables */
+
+
 :root {
     /* Base Colors */
     --bg-color: #ffffff;
     --text-color: #333333;
-    
+
     /* Input & Form Elements */
     --input-bg: #ffffff;
     --input-border: #cccccc;
     --input-focus: #4a5568;
-    
+
     /* Buttons */
     --button-bg: #4a5568;
     --button-hover: #2d3748;
     --button-text: #ffffff;
-    
+
     /* Layout Elements */
     --menu-bg: #f8f9fa;
     --header-bg: #ffffff;
     --border-color: #e2e8f0;
-    
+
     /* Output Area */
     --output-bg: #f8f9fa;
     --output-border: #e2e8f0;
     --output-text: #333333;
-    
+
     /* Keyword Matcher */
     --keyword-highlight: #ffd700;
     --keyword-border: #4a5568;
-    
+
     /* Search Form */
     --background-secondary: #f7f7f7;
     --background-primary: #ffffff;
@@ -39,31 +41,31 @@
     /* Base Colors */
     --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
-    
+
     /* Input & Form Elements */
     --input-bg: #2d2d2d;
     --input-border: #404040;
     --input-focus: #6272a4;
-    
+
     /* Buttons */
     --button-bg: #3c4655;
     --button-hover: #4a5568;
     --button-text: #ffffff;
-    
+
     /* Layout Elements */
     --menu-bg: #2d2d2d;
     --header-bg: #1a1a1a;
     --border-color: #404040;
-    
+
     /* Output Area */
     --output-bg: #2d2d2d;
     --output-border: #404040;
     --output-text: #e0e0e0;
-    
+
     /* Keyword Matcher */
     --keyword-highlight: #ffb86c;
     --keyword-border: #6272a4;
-    
+
     /* Search Form */
     --background-secondary: #333333;
     --background-primary: #2d2d2d;
@@ -85,7 +87,55 @@ body {
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
 }
+.link-item a {
+    color: white;
+    text-decoration: none;
+}
 
+.link-item a:visited {
+    color: white;
+}
+
+.time-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.time-buttons button {
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    color: black;
+    font: bold 12px Arial;
+}
+.current-wrap{
+    display: flex;
+    gap: 20px;
+}
+.time-buttons button:hover {
+    background-color: #e0e0e0;
+}
+
+.link-item.active{
+    background: red;
+}
+
+.toast-message {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.toast-message.show {
+    display: block;
+}
 .app-header {
     background-color: var(--header-bg);
     padding: 15px 20px;
@@ -115,10 +165,12 @@ body {
     padding: 5px;
     color: var(--text-color);
     transition: color 0.3s ease;
+
 }
 
 .menu-toggle:hover {
     color: var(--button-hover);
+    color: var(--text-color);
 }
 
 .container {
@@ -214,7 +266,7 @@ body {
 .input-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     margin-bottom: 20px;
 }
 
@@ -225,7 +277,6 @@ body {
     background-color: var(--input-bg);
     color: var(--text-color);
     width: 200px;
-    margin: 5px;
 }
 
 .tab1-input:hover {
@@ -240,6 +291,39 @@ body {
     opacity: 0.7;
 }
 
+#tab1{
+}
+#tab1 .tab1-wrap{
+    display: flex;
+}
+#tab1 .list-title{}
+#tab1 .list-title ul{}
+#tab1 .list-title ul li{
+    cursor: pointer;
+    list-style: none;
+    padding: 3px 5px;
+    background: #647b6a;
+    border-radius: 5px;
+    color: white;
+    font: 12px Arial ;
+    margin: 1px;
+    white-space: nowrap;
+}
+#tab1{}
+#tab1{}
+#tab1{}
+.title-cret{
+    margin: 15px 10px 5px;
+    font: 12px Arial;
+}
+
+@media screen and (max-width: 500px){
+    .title-cret{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
 .output-text {
     background-color: var(--output-bg);
     color: var(--output-text);
@@ -272,7 +356,6 @@ input[type="text"] {
     border-radius: 4px;
     width: 100%;
     max-width: 300px;
-    margin-bottom: 10px;
     background-color: var(--input-bg);
     color: var(--text-color);
 }
@@ -293,7 +376,7 @@ input[type="text"] {
 }
 
 .checkbox-container {
-    margin: 10px 5px;
+    margin: 2px 1px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -318,7 +401,7 @@ input[type="text"] {
 .checkbox-group {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 5px;
     margin: 10px 0;
     padding: 10px;
     border-top: 1px solid #eee;
@@ -396,13 +479,14 @@ input[type="text"] {
 
 .parser-links a {
     display: block;
-    padding: 8px 15px;
+    padding: 4px 10px;
     background-color: var(--accent-color);
     color: white;
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.2s;
     white-space: nowrap;
+    font: 12px Arial;
 }
 
 .parser-links a:hover {
@@ -616,4 +700,64 @@ input[type="text"] {
 .link-item{
     display: flex;
     justify-content: space-between;
+}
+
+
+.link-item a {
+    color: blue;
+    text-decoration: none;
+}
+
+.link-item a:visited {
+    color: blue;
+}
+
+.time-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.time-buttons button {
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.time-buttons button:hover {
+    background-color: #e0e0e0;
+}
+
+.toast-message {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.toast-message.show {
+    display: block;
+}
+
+.active-count {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.active-count span {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 50%;
+    color: white;
+    background-color: red;
+}
+
+.active-count span.zero {
+    background-color: transparent;
+    color: black;
 }

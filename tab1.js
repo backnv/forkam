@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function formatDate(dateStr) {
         if (!dateStr) return '';
 
+        // Remove double spaces
+        dateStr = dateStr.replace(/\s+/g, ' ').trim();
+
         // Try to parse the date
         let date;
         if (dateStr.includes('-')) {
@@ -88,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Handle work status input
         const workValue = workStatusInput.value.trim();
-        values.push(workValue === '' ? 'Выездов ранее не было' : 'выезд: ' + formatDate(workValue));
+        values.push(workValue === '' ? 'Выездов ранее не было' : 'Пред. выезд: ' + formatDate(workValue));
 
         // Handle TS status
         const tsValue = tsSelect.value;
@@ -119,7 +122,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Handle voltage input
         const voltageValue = voltageInput.value.trim();
-        if (voltageValue !== '') {
+        if (voltageValue === '') {
+            values.push('АКБ нет данных');
+        } else {
             values.push('U АКБ ТС В. ' + formatDate(voltageValue));
         }
 
@@ -177,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
         });
     });
-    document.querySelectorAll('.output-text').forEach(button => {
+    document.querySelectorAll('.copy-text').forEach(button => {
         button.addEventListener('click', function() {
             const text = this.textContent;
             navigator.clipboard.writeText(text)
@@ -220,4 +225,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial setup
     updateInputStates();
     updateOutput();
+
+
+    // Clear all fields function
+    function clearAllFields() {
+        workStatusInput.value = '';
+        tsSelect.value = 'Исправно';
+        bnsoInput.value = '';
+        ssdInput.value = '';
+        esmInput.value = '';
+        voltageInput.value = '';
+        accumulatorInput.value = '';
+        batteryInput.value = '';
+        onlineCheckbox.checked = false;
+        text1Checkbox.checked = false;
+        text2Checkbox.checked = false;
+        text3Checkbox.checked = false;
+        trustedNumberCommandCheckbox.checked = false;
+        rebootCommandCheckbox.checked = false;
+        navigationMarkCommandCheckbox.checked = false;
+        satelliteLossCheckbox.checked = false;
+        satelliteNormalCheckbox.checked = false;
+        stuckCoordinateCheckbox.checked = false;
+        dataParser.value = '';
+        outputDiv.textContent = '';
+
+        updateInputStates();
+        updateOutput();
+    }
+
+    // Add event listener for the clear button
+    const clearButton = document.getElementById('clearButton');
+    clearButton.addEventListener('click', clearAllFields);
 });
+
