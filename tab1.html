@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГЛОНАСС</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="content">
+    <div id="tab1" class="tab-content active">
+        <div class="tab1-wrap">
+            <div class="tab1-demo">
+                <div class="dataParser-wrap">
+                    <div class="parser-container">
+                        <textarea id="dataParser" class="parser-input" placeholder="Скопируй всю таблицу от знака №
+                        №	ID БНСО	Ответ от ССД	Ответ от ЕСМ	U батареи В.	U АКБ ТС В.	Вкл/выкл
+                        1	44827282	22.11.2024 13:58:45	2024-11-25 19:38:57	3.8	12.4"></textarea>
+                        <div class="parser-links">
+                            <a href="https://estp.dgkh.msk.ru/index.php?r=telemetry/alert-akb" target="_blank">Контроль АКБ</a>
+                            <a href="https://estp.dgkh.msk.ru/index.php?r=telemetry%2Fsearch-points" target="_blank">Поиск точек</a>
+                            <a href="https://estp.dgkh.msk.ru/index.php?r=telemetry%2Fcompare-points-all" target="_blank">Сравнение точек</a>
+                            <div id="clearButton">Очистить</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="workStatus" name="workStatus" placeholder="Оставь пустым если выезда небыло" class="tab1-input" title="Оставь пустым если выезда небыло">
+                    <select id="tsStatus" name="tsStatus" class="tab1-input" title="">
+                        <option value="Исправно">Исправно</option>
+                        <option value="Неисправно">Неисправно</option>
+                        <option value="Периодическая эксплуатация">Периодическая эксплуатация</option>
+                    </select>
+                    <input type="text" id="bnsoInput" name="bnso" placeholder="Тип БНСО" class="tab1-input" title="Тип БНСО">
+                    <ul class="text-up flex bold m-l15">
+                        <li data-ref="GalileoSky 5.0">5.0</li>
+                        <li data-ref="GalileoSky 7.0">7.0</li>
+                        <li data-ref="GalileoSky 7x">7x</li>
+                        <li data-ref="GalileoSky 10">10</li>
+                    </ul>
+                    <input type="text" id="ssdInput" name="ssd" placeholder="ССД" class="tab1-input" title="Ответ от ССД">
+                    <input type="text" id="esmInput" name="esm" placeholder="ЕМС" class="tab1-input" title="Ответ от ЕСМ">
+                    <div class="checkbox-container" title="When checked, SSD and ESM inputs will be disabled and show as 'online'">
+                        <input type="checkbox" id="onlineStatus" name="online">
+                        <label for="onlineStatus">Online</label>
+                    </div>
+                    <input type="text" id="voltageInput" name="voltage" placeholder="Напряжение аккумулятора" class="tab1-input" title="Напряжение аккумулятора">
+                    <input type="text" id="accumulatorInput" name="accumulator" placeholder="Состояние аккумулятора" class="tab1-input" title="Состояние аккумулятора">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="main.js"></script>
+<script src="tab1.js"></script>
+</body>
+</html>

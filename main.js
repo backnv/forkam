@@ -7,20 +7,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeButton(savedTheme === 'dark');
+        updateThemeButton(savedTheme);
     }
 
     themeToggle.addEventListener('click', function() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        let newTheme;
+        
+        // Cycle through themes: light -> dark -> gray -> light
+        switch(currentTheme) {
+            case 'light':
+                newTheme = 'dark';
+                break;
+            case 'dark':
+                newTheme = 'gray';
+                break;
+            default:
+                newTheme = 'light';
+        }
         
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        updateThemeButton(newTheme === 'dark');
+        updateThemeButton(newTheme);
     });
 
-    function updateThemeButton(isDark) {
-        themeToggle.innerHTML = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    function updateThemeButton(theme) {
+        const button = document.getElementById('themeToggle');
+        switch(theme) {
+            case 'dark':
+                button.textContent = '🌙 Dark Mode';
+                break;
+            case 'gray':
+                button.textContent = '⚫ Gray Mode';
+                break;
+            default:
+                button.textContent = '☀️ Light Mode';
+        }
     }
 
 

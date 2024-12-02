@@ -17,9 +17,6 @@
 <div id="toastMessage" class="toast-message">Скопировано!</div>
 <div class="container">
     <div id="sideMenu" class="side-menu">
-        <div class="menu-header">
-            <h2>Menu</h2>
-        </div>
         <nav class="menu-items">
             <a href="#" class="menu-item active" data-tab="tab1">ГЛОНАСС</a>
             <a href="#" class="menu-item" data-tab="tab2">Email Pars</a>
@@ -87,18 +84,32 @@
                         <textarea id="batteryInput" name="battery" placeholder="Дополнительное поле"
                                   class="tab1-input additional-textarea"
                                   title="Дополнительное поле"></textarea>
-                        <ul class="text-up flex flex-wrap bold alert-textarea">
-                            <li data-ref="Полная потеря спутников">S нет</li>
-                            <li data-ref="Зависание в 1 координате">Зависание в 1 координате</li>
-                            <li data-ref="AIN(0) напряжение в норме">AIN(0) норма</li>
-                            <li data-ref="Напряжение в движении в норме">AIN(0)движ.норм.</li>
-                            <li data-ref="Не поступают данные по AIN0">AIN(0)нет.данных</li>
-                            <li data-ref="Спутники и напряжение AIN(0) в норме ">S-AIN(0)-норма</li>
-                            <li data-ref="Расход по ДУТ присутствует">ДУТ норм</li>
-                            <li data-ref="Отсутствует расход по ДУТ">ДУТ отс</li>
-                            <li data-ref=""></li>
-                            <li data-ref=""></li>
-                        </ul>
+                                  <ul class="text-up flex flex-wrap bold alert-textarea">
+                                    <div class="text-up-title">Спутник</div>
+                                    <li data-ref="Трек корректный">да</li>
+                                    <li data-ref="Полная потеря спутников">нет</li>
+                                    <li data-ref="Частичная потеря спутников">частичная</li>
+                                    <li data-ref="Не больше 9 спутников">9</li>
+                                    <li data-ref="Не больше 7 спутников">7</li>
+                                    <li data-ref="Не больше 5 спутников">5</li>
+                                    <li data-ref="Не больше 3 спутников">3</li>
+                                </ul>
+                                    <ul class="text-up flex flex-wrap bold alert-textarea">
+                                        <div class="text-up-title">AIN(0)</div>
+                                        <li data-ref="AIN(0) напряжение в норме">да</li>
+                                        <li data-ref="Напряжение в движении в норме">движ.да</li>
+                                        <li data-ref="Не поступают данные по AIN0">нет</li>
+                                    </ul>
+                                    <ul class="text-up flex flex-wrap bold alert-textarea">
+                                        <div class="text-up-title">Спутник AIN(0)</div>
+                                        <li data-ref="Спутники и напряжение AIN(0) в норме ">да</li>
+                                        <li data-ref="Спутники и напряжение AIN(0) данные не поступают ">нет</li>
+                                    </ul>
+                                    <ul class="text-up flex flex-wrap bold alert-textarea">
+                                        <div class="text-up-title">Дут</div>
+                                        <li data-ref="Фиксируется расход по ДУТ">да</li>
+                                        <li data-ref="Отсутствует расход по ДУТ">нет</li>
+                                    </ul>
                         <div id="tab1-output" class="output-text copy-text"></div>
 
                         <div class="checkbox-group">

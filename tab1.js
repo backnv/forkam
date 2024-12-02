@@ -120,37 +120,6 @@ document.addEventListener('DOMContentLoaded', function() {
             values.push('ССД и ЕСМ online');
         }
 
-        //Add text-up to first input
-        const listItems = document.querySelectorAll('ul.text-up li');
-
-        listItems.forEach(item => {
-            item.addEventListener('click', function(event) {
-                event.stopPropagation(); // Предотвращаем всплытие события
-                // Найти ближайший родительский элемент <ul>
-                const parentUl = item.closest('ul');
-                // Найти первый input или textarea выше этого <ul>
-                let element = parentUl.previousElementSibling;
-                while (element && element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA') {
-                    element = element.previousElementSibling;
-                }
-                if (element) {
-                    const newText = item.getAttribute("data-ref");
-                    if (element.tagName === 'TEXTAREA') {
-                        if (element.value.trim() === '') {
-                            element.value = newText;
-                        } else {
-                            // Проверяем, что текст еще не добавлен
-                            if (!element.value.includes(newText)) {
-                                element.value += ' / ' + newText;
-                            }
-                        }
-                    } else {
-                        element.value = newText;
-                    }
-                }
-            });
-        });
-
         // Handle voltage input
         const voltageValue = voltageInput.value.trim();
         if (voltageValue === '') {
@@ -184,6 +153,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
         outputDiv.textContent = values.join(' / ');
     }
+
+    // Add text-up click handlers
+    const listItems = document.querySelectorAll('ul.text-up li');
+    listItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const parentUl = item.closest('ul');
+            let element = parentUl.previousElementSibling;
+            while (element && element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA') {
+                element = element.previousElementSibling;
+            }
+            if (element) {
+                const newText = item.getAttribute("data-ref");
+                if (element.tagName === 'TEXTAREA') {
+                    if (element.value.trim() === '') {
+                        element.value = newText;
+                    } else {
+                        if (!element.value.includes(newText)) {
+                            element.value += ' / ' + newText;
+                        }
+                    }
+                } else {
+                    element.value = newText;
+                }
+                updateOutput(); // Update output after changing textarea value
+            }
+        });
+    });
 
     // Add event listeners
     dataParser.addEventListener('input', function() {
@@ -226,8 +223,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    
-
     workStatusInput.addEventListener('input', updateOutput);
     tsSelect.addEventListener('change', updateOutput);
     bnsoInput.addEventListener('input', updateOutput);
@@ -256,7 +251,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial setup
     updateInputStates();
     updateOutput();
-
 
     // Clear all fields function
     function clearAllFields() {
@@ -289,4 +283,3 @@ document.addEventListener('DOMContentLoaded', function() {
     const clearButton = document.getElementById('clearButton');
     clearButton.addEventListener('click', clearAllFields);
 });
-

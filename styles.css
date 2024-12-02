@@ -3,39 +3,31 @@
 :root {
     /* Base Colors */
     --bg-color: #ffffff;
-
     --text-color: #121212;
-
     /* Input & Form Elements */
     --input-bg: #f8f9fa;
     --input-border: #cccccc;
     --input-focus: #4a5568;
-
     /* Buttons */
     --button-bg: #4a5568;
     --button-hover: #2d3748;
     --button-text: #ffffff;
-
     /* Layout Elements */
     --menu-bg: #f8f9fa;
     --header-bg: #ffffff;
     --border-color: #e2e8f0;
-
     /* Output Area */
     --output-bg: #f8f9fa;
     --output-border: #e2e8f0;
     --output-text: #333333;
-
     /* Keyword Matcher */
     --keyword-highlight: #ffd700;
     --keyword-border: #4a5568;
-
     /* Search Form */
     --background-secondary: #f7f7f7;
     --background-primary: #ffffff;
     --accent-color: #4a5568;
     --accent-color-hover: #2d3748;
-
     /* Additional Colors */
     --link-item-active-bg: #647b6a;
     --toast-message-bg: #333;
@@ -55,36 +47,60 @@
     /* Base Colors */
     --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
-
     /* Input & Form Elements */
     --input-bg: #2d2d2d;
     --input-border: #404040;
     --input-focus: #6272a4;
-
     /* Buttons */
     --button-bg: #3c4655;
     --button-hover: #4a5568;
     --button-text: #ffffff;
-
     /* Layout Elements */
     --menu-bg: #2d2d2d;
     --header-bg: #1a1a1a;
     --border-color: #404040;
-
     /* Output Area */
     --output-bg: #2d2d2d;
     --output-border: #404040;
     --output-text: #e0e0e0;
-
     /* Keyword Matcher */
     --keyword-highlight: #ffb86c;
     --keyword-border: #6272a4;
-
     /* Search Form */
     --background-secondary: #333333;
     --background-primary: #2d2d2d;
     --accent-color: #3c4655;
     --accent-color-hover: #4a5568;
+}
+
+[data-theme="gray"] {
+    /* Base Colors */
+    --bg-color: #2D3034;
+    --text-color: #ffffff;
+    /* Input & Form Elements */
+    --input-bg: #383b40;
+    --input-border: #3d4044;
+    --input-focus: #4a4d52;
+    /* Buttons */
+    --button-bg: #2D3034;
+    --button-hover: #383b40;
+    --button-text: #ffffff;
+    /* Layout Elements */
+    --menu-bg: #2D3034;
+    --header-bg: #2D3034;
+    --border-color: #3d4044;
+    /* Output Area */
+    --output-bg: #383b40;
+    --output-border: #3d4044;
+    --output-text: #ffffff;
+    /* Keyword Matcher */
+    --keyword-highlight: #ffd700;
+    --keyword-border: #4a4d52;
+    /* Search Form */
+    --background-secondary: #333333;
+    --background-primary: #2D3034;
+    --accent-color: #2D3034;
+    --accent-color-hover: #383b40;
 }
 
 /* Global Styles */
@@ -783,6 +799,14 @@ input[type="text"], input[type="number"] {
 
 .flex-wrap{
     flex-wrap: wrap;
+    align-items: center;
+}
+.text-up-title{
+    font-size: 10px;
+    font-weight: bold;
+    text-align: left;
+    width: 50px;
+
 }
 
 .bold {
