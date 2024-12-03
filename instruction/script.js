@@ -189,6 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
 
+    document.querySelectorAll('.text-overlay').forEach(x=>{
+        x.addEventListener('click', ()=>{
+            x.classList.toggle("text-activate");
+        })
+    });
+
+
 
 
 });

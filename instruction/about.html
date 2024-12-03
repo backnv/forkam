@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="theme-switcher" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">Тема</button>
+    <div class="header">
+        <button id="theme-switcher">Тема</button>
+    </div>
     <div class="menu-container">
         <!-- Main Menu -->
         <div class="form-elements" style="display: none;">
@@ -28,110 +30,127 @@
             <button>Создать</button>
         </div>
         <div class="menu-level active" id="main-menu">
-            <div class="menu-title">WordPress Posts in Vue.js</div>
+            <div class="menu-title">Единая служба технической поддержки</div>
             <div class="menu-items">
-                <div class="menu-item" data-target="history-menu">
-                    <span>История</span>
+                <div class="menu-item" data-target="customer-menu">
+                    <span>Заказчик</span>
                     <span class="arrow">→</span>
                 </div>
-                <div class="menu-item" data-target="team-menu">
-                    <span>Команда</span>
+                <div class="menu-item" data-target="engineer-menu">
+                    <span>Инженер/Куратор</span>
                     <span class="arrow">→</span>
                 </div>
-                <div class="menu-item" data-target="mission-menu">
-                    <span>Миссия</span>
-                    <span class="arrow">→</span>
+                <div class="menu-item" data-post="call">
+                    <span>Звонок</span>
                 </div>
-                <div class="menu-item" data-target="values-menu">
-                    <span>Ценности</span>
-                    <span class="arrow">→</span>
+                <div class="menu-item" data-post="help">
+                    <span>HELP DELETE</span>
+
                 </div>
             </div>
         </div>
-        <!-- History Menu -->
-        <div class="menu-level" id="history-menu">
+        <!-- Customer Menu -->
+        <div class="menu-level" id="customer-menu">
             <div class="menu-back" data-target="main-menu">← Назад</div>
-            <div class="menu-title">История</div>
+            <div class="menu-title">Заказчик</div>
             <div class="menu-items">
-                <div class="menu-item" data-target="foundation-menu">
-                    <span>Основание</span>
+                <div class="menu-item" data-target="application-menu">
+                    <span>Подать заявку</span>
                     <span class="arrow">→</span>
                 </div>
-                <div class="menu-item" data-post="history-events">
-                    <span>Ключевые события</span>
+                <div class="menu-item" data-target="questions-menu">
+                    <span>Уточняющие вопросы</span>
+                    <span class="arrow">→</span>
                 </div>
-                <div class="menu-item" data-post="achievements">
-                    <span>Достижения</span>
+                <div class="menu-item" data-target="cancellation-menu">
+                    <span>Отмена заявки на сервис</span>
+                    <span class="arrow">→</span>
                 </div>
             </div>
         </div>
-        <!-- Foundation Menu -->
-        <div class="menu-level" id="foundation-menu">
-            <div class="menu-back" data-target="history-menu">← Назад</div>
-            <div class="menu-title">Основание</div>
+        <!-- Application Menu -->
+        <div class="menu-level" id="application-menu">
+            <div class="menu-back" data-target="customer-menu">← Назад</div>
+            <div class="menu-title">Подать заявку</div>
             <div class="menu-items">
-                <div class="menu-item" data-post="first-steps">
-                    <span>Первые шаги</span>
-                </div>
-                <div class="menu-item" data-post="founders">
-                    <span>Основатели</span>
-                </div>
-                <div class="menu-item" data-post="first-projects">
-                    <span>Первые проекты</span>
+                <div class="menu-item" data-post="phone-application">
+                    <span>Создание заявки по телефону</span>
                 </div>
             </div>
         </div>
-        <!-- Team Menu -->
-        <div class="menu-level" id="team-menu">
+        <!-- Questions Menu -->
+        <div class="menu-level" id="questions-menu">
+            <div class="menu-back" data-target="customer-menu">← Назад</div>
+            <div class="menu-title">Уточняющие вопросы</div>
+            <div class="menu-items">
+                <div class="menu-item" data-post="redirect-operator">
+                    <span>Если не знаете ответа перевод на другого оператора или направляете Заказчика на почту</span>
+                </div>
+            </div>
+        </div>
+        <!-- Cancellation Menu -->
+        <div class="menu-level" id="cancellation-menu">
+            <div class="menu-back" data-target="customer-menu">← Назад</div>
+            <div class="menu-title">Отмена заявки на сервис</div>
+            <div class="menu-items">
+                <div class="menu-item" data-post="cancel-application">
+                    <span>Отмена заявки</span>
+                </div>
+            </div>
+        </div>
+        <!-- Engineer Menu -->
+        <div class="menu-level" id="engineer-menu">
             <div class="menu-back" data-target="main-menu">← Назад</div>
-            <div class="menu-title">Команда</div>
+            <div class="menu-title">Инженер/Куратор</div>
             <div class="menu-items">
-                <div class="menu-item" data-post="management">
-                    <span>Руководство</span>
+                <div class="menu-item" data-target="notification-menu">
+                    <span>Предупреждение о выезде</span>
+                    <span class="arrow">→</span>
                 </div>
-                <div class="menu-item" data-post="departments">
-                    <span>Отделы</span>
+                <div class="menu-item" data-target="check-menu">
+                    <span>Проверка трека / прокатка / аудит / уточняющие вопросы</span>
+                    <span class="arrow">→</span>
                 </div>
-                <div class="menu-item" data-post="careers">
-                    <span>Карьера</span>
+                <div class="menu-item" data-target="incident-menu">
+                    <span>Создать заявку (инцидент)</span>
+                    <span class="arrow">→</span>
                 </div>
             </div>
         </div>
-        <!-- Mission Menu -->
-        <div class="menu-level" id="mission-menu">
-            <div class="menu-back" data-target="main-menu">← Назад</div>
-            <div class="menu-title">Миссия</div>
+        <!-- Notification Menu -->
+        <div class="menu-level" id="notification-menu">
+            <div class="menu-back" data-target="engineer-menu">← Назад</div>
+            <div class="menu-title">Предупреждение о выезде</div>
             <div class="menu-items">
-                <div class="menu-item" data-post="goals">
-                    <span>Цели</span>
-                </div>
-                <div class="menu-item" data-post="strategy">
-                    <span>Стратегия</span>
-                </div>
-                <div class="menu-item" data-post="development">
-                    <span>Развитие</span>
+                <div class="menu-item" data-post="instruction">
+                    <span>Инструкция</span>
                 </div>
             </div>
         </div>
-        <!-- Values Menu -->
-        <div class="menu-level" id="values-menu">
-            <div class="menu-back" data-target="main-menu">← Назад</div>
-            <div class="menu-title">Ценности</div>
+        <!-- Check Menu -->
+        <div class="menu-level" id="check-menu">
+            <div class="menu-back" data-target="engineer-menu">← Назад</div>
+            <div class="menu-title">Проверка трека / прокатка / аудит / уточняющие вопросы</div>
             <div class="menu-items">
-                <div class="menu-item" data-post="innovation">
-                    <span>Инновации</span>
+                <div class="menu-item" data-post="redirect-operator-engineer">
+                    <span>Если не знаете ответа перевод на другого оператора или сообщаете, что перезвоните</span>
                 </div>
-                <div class="menu-item" data-post="quality">
-                    <span>Качество</span>
-                </div>
-                <div class="menu-item" data-post="customers">
-                    <span>Клиенты</span>
+            </div>
+        </div>
+        <!-- Incident Menu -->
+        <div class="menu-level" id="incident-menu">
+            <div class="menu-back" data-target="engineer-menu">← Назад</div>
+            <div class="menu-title">Создать заявку (инцидент)</div>
+            <div class="menu-items">
+                <div class="menu-item" data-post="phone-incident">
+                    <span>Создание заявки по телефону</span>
                 </div>
             </div>
         </div>
     </div>
     <!-- Posts Container -->
     <div class="posts-container">
+        <div class="posts-container">
         <div class="post" id="first-steps">
             <h2>Первые шаги компании</h2>
             <p>История нашей компании началась в 2010 году...</p>
@@ -154,7 +173,19 @@
         </div>
         
 
-        <div class="post" id="management">
+        <div class="post" id="help">
+            А - Анна
+            В - Василий
+            Е - Елена
+            К - Кирилл
+            М - Мария
+            Н - Николай
+            О - Ольга
+            Р - Роман
+            С - Сергей
+            Т - Татьяна
+            У - Ульяна
+
             <h2>Руководство компании</h2>
             <p>Наша команда руководителей состоит из опытных профессионалов...</p>
             <img src="https://i.gyazo.com/6a8daf8e05aa47329f2002e567dad851.png" alt="">
@@ -230,6 +261,291 @@
             <p>Мы постоянно внедряем новые технологии...</p>
         </div>
     </div>
+        <div class="post" id="phone-application">
+            <h2>Создание заявки по 11111111</h2>
+            <div class="tab-container">
+                <div class="tabs">
+                    <div class="tab active">Создание инцидента </div>
+                    <div class="tab">Создание заявки по телефону</div>
+                </div>
+                <div class="tab-content active">
+                    <div class="prim">
+                        ⭐️⭐️⭐️ Инциденты создаются в случаях: ⭐️⭐️⭐️                        
+                        1 – Если необходимо передать ТС из отчетов (отклонения ДУТ, контроль точек, отчет пробег и т.д)                     
+                        2- По инициативе сервисной службы (кураторы, инженеры)                      
+                        3- Если после проведенных работ инженером, неисправность не устранена ( при проверке обработано сервисом)   
+                    </div>
+
+                    <img src="img/2b230723ecd54d68962db04af37d3e89.png" alt="">
+
+                    <div class="grid2">
+                        <img src="img/b60a713f27fbc812ecf3481dffb61bd8.png" alt="">
+                        <div>
+                            <ul>
+                                <li>Выбираем канал поступления обращения - инцидент  </li>
+                                <li>Классификация обращения - Другое</li>
+                                <li>Организацию</li>
+                                <li>Адрес базы и Ответсвенного сотрудника выбираем рандомно</li>
+                                <li>Выбираем тип оборудования ( в зависимости что необходимо :глонасс, дут, кбм)</li>
+                                <li>Выбираем гос.номер транспортного средства ( !!!Обязательно проверяем, чтобы гос.номер ТС отобразился в "список ТС - выбранные ТС") </li>
+                                <li>Заполняем краткую суть обращения 
+                            примеры: по звонку инженера: "создана по инициативе инженера ФИО"   
+                                по запросу куратора: "создано по инициативе куратора ФИО"
+                                при повторной передачи в сервис "создано к обращению № // проверка работоспособности "</li>
+                                <li>Нажимаем "создать обращение" </li>
+                                <li>Берем заявку на исполнение – передаем в сервис – тип неисправности «ПЕРИОДИЧЕСКОЕ ПРОПАДАНИЕ»</li>
+                                <li>пример заявки   <a href="https://estp.dgkh.msk.ru/index.php?r=estp-request/view&id=136123">ссылка</a></li>
+                                <li>Написать в чат ЕСТП куратору (Гришкин Д. / Барабанов А.) - при написании куратору необходимо указывать ссылку на сервисную заявку   
+                            пример:  Вниманию Алексея Барабанова : инженер Веденкин Никита просит назначить на него заявку 
+                            <a href="https://estp.dgkh.msk.ru/index.php?r=sla-request/view&id=57751"> ссылка</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="tab-content">
+                    <div class="prim">
+                        КОЛЛЕГИ! УХОДИМ ОТ УСТАНОВКИ, ЧТО ВСЕ ОБРАЩЕНИЯ ТОЛЬКО НА ПОЧТУ. МЫ МОЖЕМ ПРИНЯТЬ ПО ТЕЛЕФОНУ ИЛИ ЧЕРЕЗ МОНИТОРИНГ ОБРАЩЕНИЕ ЛЮБОГО ТИПА, ВОПРОС ТОЛЬКО В НЕОБХОДИМОЙ ДОПОЛНИТЕЛЬНОЙ ИНФОРМАЦИИ, ЕЁ МОЖНО ПОПРОСИТЬ ДОНАПРАВИТЬ НА ПОЧТУ. ЕСЛИ ПОСТУПИЛА ЗАЯВКА ПО ТЕЛЕФОНУ НА ТС, ГДЕ ВСЕ ЯСНО И ПОНЯТНО (НАПРИМЕР, УЖЕ ПЕРЕДАВАЛИ, НО ОТМЕНЯЛИ) ТО МОЖНО И ЕЁ ПЕРЕДАТЬ НА СЕРВИС БЕЗ ДОПОЛНИТЕЛЬНЫХ ЗАПРОСОВ.  
+                    </div>
+
+                    <img src="img/2b230723ecd54d68962db04af37d3e89.png" alt="">
+
+                    <div class="grid2">
+                        <img src="img/b60a713f27fbc812ecf3481dffb61bd8.png" alt="">
+                        <div>
+                            <ul>
+                                <li>Выбираем канал поступления обращения - телефон</li>
+                                <li>Классификация обращения - нет данных по тС в АСУ ОДС</li>
+                                <li>В предприятии выбираем название организации </li>
+                                <li>Адрес базы выбираем со слов заказчика. Указываем ответсвенного сотрудника, кто подает заявку или с кем связываться для согласования передачи в сервис</li>
+                                <li>Выбираем тип оборудования ( в зависимости что необходимо :глонасс, дут, кбм)</li>
+                                <li>Выбираем гос.номер транспортного средства <i>!!!Обязательно проверяем, чтобы гос.номер ТС отобразился в "список ТС - выбранные ТС"</i></li>
+                                <li>7. Заполняем краткую суть обращения 
+                                    Исправность ТС  
+                                    АКБ подключена и должна быть заряжена   
+                                    Находится ТС на линии в движении или находиться в стоянке   
+                                </li>
+                                <li>Нажимаем "создать обращение"</li>
+                                <li>Берем заявку на исполнение – проводим работы по восстановлению передачи данных от блока</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            
+
+
+
+
+
+
+
+
+            
+
+
+        </div>
+        <div class="post" id="redirect-operator">
+            <h2>Если не знаете ответа перевод на другого оператора или направляете Заказчика на почту</h2>
+            <p>Если у вас возникли дополнительные вопросы, пожалуйста, свяжитесь с нашим оператором или напишите на почту...</p>
+        </div>
+        <div class="post " id="cancel-application">
+            <h2>Отмена заявки</h2>
+            <div class="prim">ПРИ РЕГИСТРАЦИИ ОБРАЩЕНИЙ НА ОТМЕНУ ЗАЯВОК ТЕПЕРЬ ВЫБИРАЕМ ТС ИЗ СПИСКА. ТУТ ТАКЖЕ ДЕЙСТВУЕТ ПРАВИЛО <i>1 ТС = ОДНО ОБРАЩЕНИЕ</i></div>
+            <div class="prim">ВСЕ ЗАЯВКИ ПОСТУПАЮЩИЕ ПО ТЕЛЕФОНУ ДОЛЖНЫ РЕГИСТРИРОВАТЬСЯ. ОТМЕНА ЗАЯВКИ ЭТО ТОЖЕ ЗАЯВКА.  </div>                                                     
+            <div class="prim">ИСКЛЮЧЕНИЕ - ОТМЕНА В МОМЕНТ ОПОВЕЩЕНИЯ ЗАКАЗЧИКА О ПРИЕЗДЕ ИНЖЕНЕРА НА БАЗУ.             </div>                                                
+            <div class="prim">В КРАТКУЮ СУТЬ "Отмена заявки №2222222 по инициативе заказчика, нет возможности представить ТС к осмотру, ТС на линии"</div>                                                  
+            <div class="prim">В РАБОТЕ И ИСПОЛНЕНО: Информация перенаправлена в отдел сервисного обслуживания </div>                                                          
+                                                                    
+            <div class="prim">Оператор узнает имя заказчика и название организации</div>                                                              
+            <div class="prim">Оператор уточнет номер заявки, если заказчик не помнить номер заяявки, то уточняет гос.номер ТС </div>                                                              
+            <div class="prim">Оператор уточняет причину отмены заявки</div>                                                           
+            <div class="prim">В ЕСТП учет обращений находить заявку </div>      
+                                                                 
+
+
+
+
+
+
+
+
+
+        </div>
+        <div class="post" id="instruction">
+            <h2>Инструкция</h2>
+            <p>Пожалуйста, следуйте этой инструкции для предупреждения о выезде...</p>
+        </div>
+        <div class="post" id="redirect-operator-engineer">
+            <h2>Если не знаете ответа перевод на другого оператора или сообщаете, что перезвоните</h2>
+            <p>Если у вас возникли дополнительные вопросы, пожалуйста, свяжитесь с нашим оператором или ожидайте звонка...</p>
+        </div>
+        <div class="post" id="phone-incident">
+            <h2>Создание заявки по телефону (инцидент)</h2>
+            <p>Для создания заявки по телефону, пожалуйста, предоставьте следующую информацию...</p>
+        </div>
+        <div class="post" id="call">
+            <h2>Звонок</h2>
+            <div class="text-overlay">Здравствуйте, это Единая Служба Технической Поддержки, меня зовут <i>Максим</i>.</div>
+            <div class="text-overlay">Звоню по направленной заявке, ТС госномер С***РC**.</div>
+            <div class="text-overlay">Видим что координата БНСО не меняется, скажите пожалуйста, машина в данный момент на линии? (в движении? катается?)</div>
+
+
+            <div class="tab-container">
+                <div class="tabs">
+                    <div class="tab active">Нет</div>
+                    <div class="tab">Да</div>
+                </div>
+                <div class="tab-content  active">
+                    <ul class="over-wrap text-overlay mb10">
+                        <li>Вы не могли бы ее привести в движение, хотя бы на несколько минут (хотя бы по базе пусть немного прокатится)?</li>
+                        <li>Есть ли возможности  привести ТС в движение</li>
+                    </ul>
+                    <ul class="over-wrap text-overlay">
+                        <li><div>спасибо, попробуем удаленно устранить неисправность <i>АВД</i>
+                        <span>Хорошо, в течение 30 минут. </span></div></li>
+                        <li><div>Спасибо, проведем удаленные работы, по итогам проведения работ я с Вами свяжусь. Ориентировочно, в течение 1-2 часов. <span>хорошо, спасибо.</span></div></li>
+                    </ul>
+
+                    <div class="text-center">Если НЕТ</div>
+                    <div class="text-overlay">!!!!!!!!!</div>
+
+                    
+                    
+                    
+                </div>
+                <div class="tab-content ">
+                    <div class="text-overlay">!!!!!!!!!</div>
+                    <div class="text-overlay">!!!!!!!!!</div>
+                    <div class="text-overlay">Всего доброго, до свидания</div>
+                </div>
+            </div>
+            
+            <div class="text-overlay"></div>
+
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<!-- sdssssssssssssssssssss -->
+<div class="posts-container">
+        <div class="post" id="first-steps">
+            <h2>Первые шаги компании</h2>
+            <p>История нашей компании началась в 2010 году...</p>
+        </div>
+        <div class="post" id="founders">
+            <h2>Основатели</h2>
+            <p>Компания была основана тремя энтузиастами...</p>
+        </div>
+        <div class="post" id="history-events">
+            <h2>Ключевые события</h2>
+            <p>За время существования компании произошло много важных событий...</p>
+        </div>
+        <div class="post" id="achievements">
+            <h2>Достижения</h2>
+            <p>Наши главные достижения за все время работы...</p>
+        </div>
+        <div class="post" id="departments">
+            <h2>Достижения 11111111111</h2>
+            <p>Наши главные достижения за все время работы...</p>
+        </div>
+        
+
+        <div class="post" id="management">
+            <h2>Руководство компании</h2>
+            <p>Наша команда руководителей состоит из опытных профессионалов...</p>
+            <img src="https://i.gyazo.com/6a8daf8e05aa47329f2002e567dad851.png" alt="">
+            <div class="tab-container">
+                <div class="tabs">
+                    <div class="tab active">Test</div>
+                    <div class="tab">Tab 2</div>
+                    <div class="tab">Tab 3</div>
+                </div>
+                <div class="tab-content active">
+                    <p>Content for Tab 1</p>
+                </div>
+                <div class="tab-content">
+                    <p>Content for Tab 2</p>
+                </div>
+                <div class="tab-content">
+                    <p>Content for Tab 3</p>
+                </div>
+            </div>
+
+            <a href="#">Lorem ipsum, dolor sit amet.</a>
+
+            <ul>
+                <li>Lorem ipsum dolor sit, amet.</li>
+                <li>Lorem ipsum dolor sit, amet.</li>
+                <li>Lorem ipsum dolor sit, amet.</li>
+            </ul>
+
+
+
+
+            <div class="tab-container">
+                <div class="tabs">
+                    <div class="tab active">Test</div>
+                    <div class="tab">Tab 2</div>
+                </div>
+                <div class="tab-content active">
+                    <p>Content for Tab 11111111</p>
+                </div>
+                <div class="tab-content">
+                    <p>Content for Tab 2222222222</p>
+                </div>
+            </div>
+
+            
+            <div class="grid2">
+                <div>1</div>
+                <div>2</div>
+            </div>
+            <div class="grid3">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+            </div>
+
+            <div class="grid2">
+                <img class="mh-150" src="https://i.gyazo.com/6a8daf8e05aa47329f2002e567dad851.png" alt="">
+                <div class="lorem">Lorem, <i>Lorem ipsum dolor sit amet.</i>consectetur adipisicing elit. Sed consequatur asperiores, error aperiam iure, nihil quo nulla nam inventore temporibus <i>network</i> aliquam, facere totam ab animi accusamus voluptatibus facilis saepe pariatur?</div>
+            </div>
+
+            <input type="text" placeholder="text dlya testa">
+
+            
+
+
+        </div>
+
+
+        <div class="post" id="goals">
+            <h2>Наши цели</h2>
+            <p>Мы стремимся к постоянному развитию...</p>
+        </div>
+        <div class="post" id="innovation">
+            <h2>Инновации</h2>
+            <p>Мы постоянно внедряем новые технологии...</p>
+        </div>
+    </div>
+
+
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
