@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Multi-level Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="theme-switcher" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">Тема</button>
+    <div class="menu-container">
+        <!-- Main Menu -->
+        <div class="form-elements" style="display: none;">
+            <input type="text" placeholder="Введите текст">
+            <textarea placeholder="Введите описание"></textarea>
+            <select>
+                <option value="" disabled selected>Выберите опцию</option>
+                <option value="11">Опция 1</option>
+                <option value="112">Опция 2</option>
+                <option value="131">Опция 3</option>
+                <option value="141">Опция 4</option>
+            </select>
+            <label>
+                <input type="checkbox">
+                <span>Подтвердить выбор</span>
+            </label>
+            <input type="number" placeholder="Введите число">
+            <button>Создать</button>
+        </div>
+        <div class="menu-level active" id="main-menu">
+            <div class="menu-title">WordPress Posts in Vue.js</div>
+            <div class="menu-items">
+                <div class="menu-item" data-target="history-menu">
+                    <span>История</span>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="menu-item" data-target="team-menu">
+                    <span>Команда</span>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="menu-item" data-target="mission-menu">
+                    <span>Миссия</span>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="menu-item" data-target="values-menu">
+                    <span>Ценности</span>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+        </div>
+        <!-- History Menu -->
+        <div class="menu-level" id="history-menu">
+            <div class="menu-back" data-target="main-menu">← Назад</div>
+            <div class="menu-title">История</div>
+            <div class="menu-items">
+                <div class="menu-item" data-target="foundation-menu">
+                    <span>Основание</span>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="menu-item" data-post="history-events">
+                    <span>Ключевые события</span>
+                </div>
+                <div class="menu-item" data-post="achievements">
+                    <span>Достижения</span>
+                </div>
+            </div>
+        </div>
+        <!-- Foundation Menu -->
+        <div class="menu-level" id="foundation-menu">
+            <div class="menu-back" data-target="history-menu">← Назад</div>
+            <div class="menu-title">Основание</div>
+            <div class="menu-items">
+                <div class="menu-item" data-post="first-steps">
+                    <span>Первые шаги</span>
+                </div>
+                <div class="menu-item" data-post="founders">
+                    <span>Основатели</span>
+                </div>
+                <div class="menu-item" data-post="first-projects">
+                    <span>Первые проекты</span>
+                </div>
+            </div>
+        </div>
+        <!-- Team Menu -->
+        <div class="menu-level" id="team-menu">
+            <div class="menu-back" data-target="main-menu">← Назад</div>
+            <div class="menu-title">Команда</div>
+            <div class="menu-items">
+                <div class="menu-item" data-post="management">
+                    <span>Руководство</span>
+                </div>
+                <div class="menu-item" data-post="departments">
+                    <span>Отделы</span>
+                </div>
+                <div class="menu-item" data-post="careers">
+                    <span>Карьера</span>
+                </div>
+            </div>
+        </div>
+        <!-- Mission Menu -->
+        <div class="menu-level" id="mission-menu">
+            <div class="menu-back" data-target="main-menu">← Назад</div>
+            <div class="menu-title">Миссия</div>
+            <div class="menu-items">
+                <div class="menu-item" data-post="goals">
+                    <span>Цели</span>
+                </div>
+                <div class="menu-item" data-post="strategy">
+                    <span>Стратегия</span>
+                </div>
+                <div class="menu-item" data-post="development">
+                    <span>Развитие</span>
+                </div>
+            </div>
+        </div>
+        <!-- Values Menu -->
+        <div class="menu-level" id="values-menu">
+            <div class="menu-back" data-target="main-menu">← Назад</div>
+            <div class="menu-title">Ценности</div>
+            <div class="menu-items">
+                <div class="menu-item" data-post="innovation">
+                    <span>Инновации</span>
+                </div>
+                <div class="menu-item" data-post="quality">
+                    <span>Качество</span>
+                </div>
+                <div class="menu-item" data-post="customers">
+                    <span>Клиенты</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Posts Container -->
+    <div class="posts-container">
+        <div class="post" id="first-steps">
+            <h2>Первые шаги компании</h2>
+            <p>История нашей компании началась в 2010 году...</p>
+        </div>
+        <div class="post" id="founders">
+            <h2>Основатели</h2>
+            <p>Компания была основана тремя энтузиастами...</p>
+        </div>
+        <div class="post" id="history-events">
+            <h2>Ключевые события</h2>
+            <p>За время существования компании произошло много важных событий...</p>
+        </div>
+        <div class="post" id="achievements">
+            <h2>Достижения</h2>
+            <p>Наши главные достижения за все время работы...</p>
+        </div>
+        <div class="post" id="departments">
+            <h2>Достижения 11111111111</h2>
+            <p>Наши главные достижения за все время работы...</p>
+        </div>
+        
+
+        <div class="post" id="management">
+            <h2>Руководство компании</h2>
+            <p>Наша команда руководителей состоит из опытных профессионалов...</p>
+            <img src="https://i.gyazo.com/6a8daf8e05aa47329f2002e567dad851.png" alt="">
+            <div class="tab-container">
+                <div class="tabs">
+                    <div class="tab active">Test</div>
+                    <div class="tab">Tab 2</div>
+                    <div class="tab">Tab 3</div>
+                </div>
+                <div class="tab-content active">
+                    <p>Content for Tab 1</p>
+                </div>
+                <div class="tab-content">
+                    <p>Content for Tab 2</p>
+                </div>
+                <div class="tab-content">
+                    <p>Content for Tab 3</p>
+                </div>
+            </div>
+
+            <a href="#">Lorem ipsum, dolor sit amet.</a>
+
+            <ul>
+                <li>Lorem ipsum dolor sit, amet.</li>
+                <li>Lorem ipsum dolor sit, amet.</li>
+                <li>Lorem ipsum dolor sit, amet.</li>
+            </ul>
+
+
+
+
+            <div class="tab-container">
+                <div class="tabs">
+                    <div class="tab active">Test</div>
+                    <div class="tab">Tab 2</div>
+                </div>
+                <div class="tab-content active">
+                    <p>Content for Tab 11111111</p>
+                </div>
+                <div class="tab-content">
+                    <p>Content for Tab 2222222222</p>
+                </div>
+            </div>
+            <div class="grid2">
+                <div>1</div>
+                <div>2</div>
+            </div>
+            <div class="grid3">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+            </div>
+
+            <div class="grid2">
+                <img class="mh-150" src="https://i.gyazo.com/6a8daf8e05aa47329f2002e567dad851.png" alt="">
+                <div class="lorem">Lorem, <i>Lorem ipsum dolor sit amet.</i>consectetur adipisicing elit. Sed consequatur asperiores, error aperiam iure, nihil quo nulla nam inventore temporibus <i>network</i> aliquam, facere totam ab animi accusamus voluptatibus facilis saepe pariatur?</div>
+            </div>
+
+            <input type="text" placeholder="text dlya testa">
+
+            
+
+
+        </div>
+
+
+        <div class="post" id="goals">
+            <h2>Наши цели</h2>
+            <p>Мы стремимся к постоянному развитию...</p>
+        </div>
+        <div class="post" id="innovation">
+            <h2>Инновации</h2>
+            <p>Мы постоянно внедряем новые технологии...</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

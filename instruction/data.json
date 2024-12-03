@@ -1,0 +1,100 @@
+{
+    "menu": [
+        {
+            "title": "О компании",
+            "items": [
+                { "title": "История", "target": "history-menu" },
+                { "title": "Команда", "target": "team-menu" },
+                { "title": "Миссия", "target": "mission-menu" },
+                { "title": "Ценности", "target": "values-menu" }
+            ]
+        },
+        {
+            "title": "История",
+            "back": "main-menu",
+            "items": [
+                { "title": "Основание", "target": "foundation-menu" },
+                { "title": "Ключевые события", "post": "history-events" },
+                { "title": "Достижения", "post": "achievements" }
+            ]
+        },
+        {
+            "title": "Основание",
+            "back": "history-menu",
+            "items": [
+                { "title": "Первые шаги", "post": "first-steps" },
+                { "title": "Основатели", "post": "founders" },
+                { "title": "Первые проекты", "post": "first-projects" }
+            ]
+        },
+        {
+            "title": "Команда",
+            "back": "main-menu",
+            "items": [
+                { "title": "Руководство", "post": "management" },
+                { "title": "Отделы", "post": "departments" },
+                { "title": "Карьера", "post": "careers" }
+            ]
+        },
+        {
+            "title": "Миссия",
+            "back": "main-menu",
+            "items": [
+                { "title": "Цели", "post": "goals" },
+                { "title": "Стратегия", "post": "strategy" },
+                { "title": "Развитие", "post": "development" }
+            ]
+        },
+        {
+            "title": "Ценности",
+            "back": "main-menu",
+            "items": [
+                { "title": "Инновации", "post": "innovation" },
+                { "title": "Качество", "post": "quality" },
+                { "title": "Клиенты", "post": "customers" }
+            ]
+        }
+    ],
+    "posts": [
+        {
+            "id": "first-steps",
+            "title": "Первые шаги компании",
+            "content": "История нашей компании началась в 2010 году..."
+        },
+        {
+            "id": "founders",
+            "title": "Основатели",
+            "content": "Компания была основана тремя энтузиастами..."
+        },
+        {
+            "id": "history-events",
+            "title": "Ключевые события",
+            "content": "За время существования компании произошло много важных событий..."
+        },
+        {
+            "id": "achievements",
+            "title": "Достижения",
+            "content": "Наши главные достижения за все время работы..."
+        },
+        {
+            "id": "departments",
+            "title": "Достижения 11111111111",
+            "content": "Наши главные достижения за все время работы..."
+        },
+        {
+            "id": "management",
+            "title": "Руководство компании",
+            "content": "Наша команда руководителей состоит из опытных профессионалов..."
+        },
+        {
+            "id": "goals",
+            "title": "Наши цели",
+            "content": "Мы стремимся к постоянному развитию..."
+        },
+        {
+            "id": "innovation",
+            "title": "Инновации",
+            "content": "Мы постоянно внедряем новые технологии..."
+        }
+    ]
+}
